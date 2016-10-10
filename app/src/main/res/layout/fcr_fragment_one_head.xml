@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="260dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="250dp">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:id="@+id/fcr_head_im"
+            android:src="@drawable/d"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:id="@+id/fcr_head_tv"
+            android:background="#ccc"
+            android:alpha="0.4"
+            android:gravity="center_vertical"
+            android:textSize="16sp"
+            android:textColor="#000"
+            android:text="这个视频将告诉你迪士尼的传奇"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="10dp"/>
+    </RelativeLayout>
+</FrameLayout>

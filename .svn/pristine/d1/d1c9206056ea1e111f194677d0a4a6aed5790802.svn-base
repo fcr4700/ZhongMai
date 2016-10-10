@@ -1,0 +1,70 @@
+package com.qf.project.tempproject;
+
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.widget.RadioGroup;
+
+import com.qf.project.tempproject.fragment.oneFragment.OneFragment;
+
+public class MainActivity extends AppCompatActivity implements RadioGroup.OnCheckedChangeListener {
+    Fragment fragment1,fragment2,fragment3,fragment4,fragment5;
+    RadioGroup mRadioGroup;
+    FragmentManager mManager;
+    FragmentTransaction mTransaction;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        initView();
+        initData();
+
+        mRadioGroup.setOnCheckedChangeListener(this);
+        mManager=getSupportFragmentManager();
+        mTransaction=mManager.beginTransaction();
+        mTransaction.add(R.id.fragmentId,fragment1);
+        mTransaction.commit();
+
+    }
+
+    private void initData() {
+        fragment1=new OneFragment();
+        //TODO
+    }
+
+    private void initView() {
+        mRadioGroup= (RadioGroup) findViewById(R.id.Tabs);
+    }
+
+
+    @Override
+    public void onCheckedChanged(RadioGroup group, int checkedId) {
+        switch (checkedId){
+            case R.id.radioBtn_one:
+                Fragment OneFrag=fragment1;
+                mTransaction=mManager.beginTransaction();
+                mTransaction.replace(R.id.fragmentId,OneFrag);
+                mTransaction.addToBackStack(null);
+                mTransaction.commit();
+                break;
+            case R.id.radioBtn_two:
+
+                break;
+            case R.id.radioBtn_three:
+
+                break;
+            case R.id.radioBtn_four:
+
+                break;
+            case R.id.radioBtn_five:
+
+                break;
+        }
+    }
+}
